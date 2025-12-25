@@ -1,0 +1,118 @@
+@use "../../utils/functions" as f;
+@use "../../utils/mixins" as m;
+@use "../../utils/placeholders";
+
+.co-workers {
+    &-details {
+        @extend %details;
+
+        padding: f.get-spacer("medium-padding") 0;
+
+        @include m.mq("xl") {
+            display: none;
+        }
+    }
+
+    &-data {
+        @include m.ease("slow", margin);
+
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .co-workers-details[open] & {
+            margin-bottom: f.get-spacer("medium-padding");
+        }
+    }
+
+    &-icon {
+        flex-shrink: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+        height: 20px;
+
+        border-radius: 4px;
+        border: 1px solid f.get-color("light-tertiary");
+        cursor: pointer;
+
+        .plus {
+            @include m.ease("fast", opacity);
+            transition-delay: 150ms;
+
+            opacity: 0;
+            fill: f.get-color("light-tertiary");
+
+            .co-workers-details:not([open]) & {
+                opacity: 1;
+            }
+        }
+
+        .minus {
+            @include m.ease("fast", opacity);
+            transition-delay: 150ms;
+
+            opacity: 0;
+            fill: f.get-color("light-tertiary");
+
+            .co-workers-details[open] & {
+                opacity: 1;
+            }
+        }
+    }
+
+    &-bio {
+        flex-grow: 1;
+
+        display: flex;
+        align-items: center;
+        gap: f.get-spacer("small-padding");
+
+        .thumb {
+            @include m.frame(24px, $is-circle: true);
+        }
+    }
+
+    &-controls {
+        display: flex;
+        align-items: center;
+        gap: f.get-spacer("medium-padding");
+    }
+
+    .controls-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 20px;
+        height: 20px;
+
+        &-icon {
+            &.success {
+                fill: f.get-color("success");
+            }
+
+            &.error {
+                fill: f.get-color("danger");
+            }
+        }
+    }
+
+    &-info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: f.get-spacer("small-padding") 12px;
+
+        width: fit-content;
+        padding: 0 f.get-spacer("medium-spacing");
+    }
+
+    &-position,
+    &-accept {
+        @extend %details-accent;
+
+        color: f.get-color("light-primary");
+    }
+}

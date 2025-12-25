@@ -1,0 +1,37 @@
+@use "../utils/functions" as f;
+@use "../utils/mixins" as m;
+
+.notification-button {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 20px;
+    min-height: 20px;
+
+    color: f.get-color("light-tertiary");
+
+    &-icon {
+        fill: currentColor;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        display: block;
+        width: 8px;
+        height: 8px;
+
+        background-color: f.get-color("accent-primary");
+        border-radius: 50%;
+    }
+
+    &[data-notify="true"]::after {
+        background-color: f.get-color("danger");
+    }
+}

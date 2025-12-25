@@ -1,0 +1,36 @@
+@use "../utils/functions" as f;
+@use "../utils/mixins" as m;
+@use "../utils/placeholders";
+
+.welcome {
+    grid-area: welcome;
+
+    @include m.mq("xl") {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}
+
+.page-title {
+    @include m.mq("xl", "max") {
+        margin-bottom: f.get-spacer("medium-padding");
+    }
+
+    &-accent {
+        @extend %section-title;
+
+        display: block;
+        margin-bottom: f.get-spacer("small-padding");
+
+        color: f.get-color("light-primary");
+
+        @include m.mq("xl") {
+            margin-bottom: f.get-spacer("medium-padding");
+        }
+    }
+}
+
+.welcome-button {
+    
+}

@@ -1,0 +1,16 @@
+@use "../utils/functions" as f;
+@use "../utils/placeholders";
+
+@each $value in "danger", "warning", "success" {
+    .badge-#{$value} {
+        @extend %details-accent;
+
+        min-width: 96px;
+        padding: f.get-spacer("base-padding") f.get-spacer("small-padding");
+
+        text-align: center;
+        color: f.get-color("light-primary");
+        border-radius: 20px;
+        background-color: f.get-color($value);
+    }
+}

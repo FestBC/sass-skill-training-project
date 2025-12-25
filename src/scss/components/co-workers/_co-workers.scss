@@ -1,0 +1,64 @@
+@use "../../utils/functions" as f;
+@use "../../utils/mixins" as m;
+@use "../../utils/placeholders";
+
+.co-workers {
+    grid-area: co-workers;
+
+    @include m.mq("xl") {
+        padding: f.get-spacer("large-padding");
+        background-color: f.get-color("dark-tertiary");
+        border-radius: 12px;
+    }
+
+    &-wrapper {
+        max-height: 388px;
+        padding: f.get-spacer("medium-padding");
+        margin-bottom: 40px;
+
+        border-radius: 12px;
+        background-color: f.get-color("dark-tertiary");
+
+        @include m.mq("xl") {
+            max-height: 400px;
+            padding: f.get-spacer("small-spacing");
+            margin-bottom: f.get-spacer("medium-spacing");
+            background-color: f.get-color("dark-secondary");
+        }
+    }
+
+    &-title {
+        @extend %details;
+
+        margin-bottom: 28px;
+
+        @include m.mq("xl") {
+            margin-left: f.get-spacer("large-spacing");
+        }
+
+        span {
+            @extend %accent-text;
+        }
+    }
+
+    &-container {
+        @extend %scroll-bar;
+
+        max-height: 296px;
+
+        overflow-y: auto;
+
+        @include m.mq("xl") {
+            margin-right: -14px;
+        }
+    }
+
+    &-board {
+        margin-bottom: f.get-spacer("large-padding");
+    }
+
+    &-button {
+        display: block;
+        margin: 0 auto;
+    }
+}

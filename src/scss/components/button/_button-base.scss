@@ -1,0 +1,37 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: $button-layer-spacing;
+
+    min-width: $button-layer-min-width;
+    min-height: $button-layer-min-height;
+    padding: $button-padding-y $button-padding-x;
+
+    color: $button-text-color;
+    border-radius: $button-layer-border-radius;
+
+    @include m.ease("fast", background-color, color, box-shadow);
+
+    font: inherit;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    margin: 0;
+    overflow: visible;
+    cursor: pointer;
+
+    &[disabled] {
+        background-color: f.get-color("light-secondary");
+    }
+
+    .button-inner {
+        font-size: $button-text-size;
+        font-weight: $button-text-weight;
+        line-height: $button-line-height;
+        letter-spacing: $button-text-spacing;
+    }
+
+    .button-icon {
+        fill: currentColor;
+    }
+}

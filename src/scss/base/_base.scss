@@ -1,0 +1,22 @@
+@use "../utils/functions" as f;
+@use "../utils/placeholders";
+@use "../utils/variables" as v;
+
+body {
+    @extend %main-text;
+
+    font-family: v.$main-font, sans-serif;
+    color: f.get-color("light-secondary");
+    background-color: f.get-color("dark");
+    min-height: 100vh;
+}
+
+button {
+    font-family: inherit;
+    color: currentColor;
+    cursor: pointer;
+}
+
+summary {
+    list-style-type: none;
+}

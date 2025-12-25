@@ -1,0 +1,76 @@
+@use "../../utils/functions" as f;
+@use "../../utils/mixins" as m;
+@use "../../utils/placeholders";
+
+.co-workers-table {
+    width: 100%;
+
+    @include m.mq("xl", "max") {
+        display: none;
+    }
+
+    caption {
+        @extend %details;
+
+        margin-bottom: f.get-spacer("large-spacing");
+        color: f.get-color("light-secondary");
+
+        span {
+            @extend %accent-text;
+        }
+    }
+
+    thead {
+        position: sticky;
+        top: -1px;
+        z-index: 100;
+        background-color: f.get-color("dark-tertiary");
+        @include m.mq("xl") {
+            background-color: f.get-color("dark-secondary");
+        }
+        th {
+            @extend %details-accent;
+            position: relative;
+            padding: 12px f.get-spacer("large-padding");
+            border-bottom-width: 1px;
+            color: f.get-color("light-primary");
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                display: block;
+                width: 100%;
+                height: 1px;
+                background-color: f.get-color("dark-tertiary");
+            }
+            &:first-child {
+                text-align: center;
+            }
+        }
+    }
+    tbody {
+        @extend %details;
+        color: f.get-color("light-secondary");
+        td {
+            position: relative;
+            padding: f.get-spacer("medium-padding") f.get-spacer("large-padding");
+            vertical-align: middle;
+            border-bottom-width: 1px;
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                display: block;
+                width: 100%;
+                height: 1px;
+                background-color: f.get-color("dark-tertiary");
+            }
+        }
+    }
+    .thumb {
+        @include m.frame(24px, $is-circle: true);
+        margin: 0 auto;
+    }
+}

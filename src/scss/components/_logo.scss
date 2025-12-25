@@ -1,0 +1,17 @@
+@use "../utils/functions" as f;
+@use "../utils/mixins" as m;
+@use "../utils/placeholders";
+
+.logo {
+    @extend %main-title;
+
+    display: flex;
+    align-items: center;
+    gap: f.get-spacer("small-padding");
+    padding: f.get-spacer("small-padding") f.get-spacer("large-padding");
+    color: f.get-color("accent-primary");
+
+    @include m.mq("xl") {
+        padding: f.get-spacer("medium-padding") f.get-spacer("large-padding");
+    }
+}

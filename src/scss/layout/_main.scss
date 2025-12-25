@@ -1,0 +1,26 @@
+@use "../utils/functions" as f;
+@use "../utils/mixins" as m;
+@use "../utils/placeholders";
+@use "../utils/variables" as v;
+
+.main {
+    display: grid;
+    gap: 48px;
+    padding: f.get-spacer("medium-padding");
+    grid-template-areas:
+        "welcome"
+        "co-workers"
+        "tasks"
+        "reports";
+    align-content: start;
+
+    @include m.mq("xl") {
+        grid-area: main;
+
+        grid-template-columns: repeat(auto-fit, minmax(455px, 629px));
+        grid-template-areas:
+            "welcome welcome"
+            "co-workers tasks"
+            "co-workers reports";
+    }
+}

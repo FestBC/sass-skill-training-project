@@ -1,0 +1,16 @@
+@use "../utils/functions" as f;
+@use "../utils/mixins" as m;
+@use "../utils/placeholders";
+
+.notification {
+    flex-shrink: 0;
+
+    display: block;
+    min-width: 28px;
+    height: 20px;
+    padding: 0 10px;
+
+    color: f.get-color("light-primary");
+    border-radius: 12px;
+    background-color: f.get-color("danger");
+}

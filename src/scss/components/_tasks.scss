@@ -1,0 +1,111 @@
+@use "../utils/functions" as f;
+@use "../utils/mixins" as m;
+@use "../utils/placeholders";
+
+.tasks {
+    @extend %section-frame;
+
+    grid-area: tasks;
+
+    min-width: 340px;
+    max-height: 420px;
+
+    background-color: f.get-color("dark-tertiary");
+
+    &-title {
+        @extend %details;
+
+        margin-bottom: 36px;
+        color: f.get-color("light-secondary");
+
+        span {
+            @extend %accent-text;
+            color: f.get-color("light-primary");
+        }
+    }
+
+    &-list {
+        @extend %scroll-bar;
+
+        max-height: 288px;
+        overflow: auto;
+
+        @include m.mq("xl") {
+            margin-right: -14px;
+        }
+    }
+
+    &-item {
+        display: flex;
+        align-items: center;
+        gap: f.get-spacer("medium-padding");
+
+        padding: f.get-spacer("medium-padding") f.get-spacer("small-padding");
+        border-top: 1px solid;
+        border-color: f.get-color("light-tertiary");
+    }
+
+    &-checkbox {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+
+        &-icon {
+            @include m.ease("fast", fill, background-color, border-color);
+
+            fill: transparent;
+            border: 1px solid f.get-color("light-tertiary");
+            border-radius: 4px;
+
+            .tasks-input:checked + & {
+                fill: f.get-color("light-primary");
+                background-color: f.get-color("accent-primary");
+                border-color: transparent;
+            }
+
+            .tasks-input:focus-visible + & {
+                outline: 2px solid f.get-color("light-tertiary");
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    &-info {
+        flex-grow: 1;
+    }
+
+    &-heading {
+        @extend %details;
+
+        color: f.get-color("light-primary");
+    }
+
+    &-desc {
+        @extend %details;
+
+        color: f.get-color("light-secondary");
+    }
+
+    &-button {
+        @include m.ease("fast", outline);
+
+        width: 20px;
+        height: 20px;
+        color: f.get-color("light-tertiary");
+        border-radius: 50%;
+
+        &:focus-visible {
+            outline: 2px solid rgba(f.get-color("light-tertiary"), 0.6);
+            outline-offset: 3px;
+        }
+
+        &-icon {
+            fill: currentColor;
+        }
+    }
+}

@@ -1,0 +1,71 @@
+@use "../../utils/functions" as f;
+@use "../../utils/mixins" as m;
+@use "../../utils/placeholders";
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: f.get-spacer("large-padding");
+
+    &-item {
+        @extend %section-frame;
+
+        flex-grow: 1;
+
+        display: flex;
+        justify-content: space-between;
+        gap: 43px;
+
+        background-color: f.get-color("dark-tertiary");
+
+        @include m.mq("xl") {
+            background-color: f.get-color("dark-secondary");
+        }
+
+        &.hide {
+            display: none;
+        }
+    }
+
+    &-caption {
+        @extend %accent-text;
+
+        margin-bottom: f.get-spacer("small-padding");
+        color: f.get-color("light-primary");
+    }
+
+    &-details {
+        @extend %details;
+
+        margin-bottom: f.get-spacer("large-padding");
+        color: f.get-color("light-secondary");
+    }
+
+    .person {
+        display: flex;
+        align-items: center;
+        gap: f.get-spacer("small-padding");
+
+        &-thumb {
+            @include m.frame(24px, $is-circle: true);
+        }
+
+        &-caption {
+            @extend %details;
+        }
+    }
+
+    &-right {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+    }
+
+    &-tag {
+        @extend %details;
+
+        margin-bottom: auto;
+        text-align: right;
+        color: f.get-color("light-secondary");
+    }
+}

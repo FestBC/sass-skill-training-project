@@ -1,0 +1,43 @@
+@use "sass:map";
+
+@use "variables" as v;
+
+@function get-break-point($key) {
+    @if map.has-key(v.$break-points, $key) {
+        @return map.get(v.$break-points, $key);
+    } @else {
+        @error "Such a break point doesn't exist! Check the map!"
+    }
+}
+
+@function get-color($key) {
+    @if map.has-key(v.$colors, $key) {
+        @return map.get(v.$colors, $key);
+    } @else {
+        @error "Such a color doesn't exist! Check the map!"
+    }
+}
+
+@function get-spacer($key) {
+    @if map.has-key(v.$spacers, $key) {
+        @return map.get(v.$spacers, $key);
+    } @else {
+        @error "Such a spacer doesn't exist! Check the map!"
+    }
+}
+
+@function get-font-weight($key) {
+    @if map.has-key(v.$font-weights, $key) {
+        @return map.get(v.$font-weights, $key);
+    } @else {
+        @error "Such a font weight doesn't exist! Check the map!"
+    }
+}
+
+@function get-font-size($key) {
+    @if map.has-key(v.$font-sizes, $key) {
+        @return map.get(v.$font-sizes, $key);
+    } @else {
+        @error "Such a font size doesn't exist! Check the map!"
+    }
+}

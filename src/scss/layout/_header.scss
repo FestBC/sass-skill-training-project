@@ -1,0 +1,19 @@
+@use "../utils/functions" as f;
+@use "../utils/mixins" as m;
+@use "../utils/placeholders";
+@use "../utils/variables" as v;
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: f.get-spacer("medium-padding");
+
+    background-color: f.get-color("dark-secondary");
+    box-shadow: 0px 1px 0px 0px f.get-color("dark-tertiary") inset;
+
+    @include m.mq("xl") {
+        grid-area: header;
+        padding: f.get-spacer("small-spacing") f.get-spacer("large-spacing");
+        justify-content: space-between;
+    }
+}

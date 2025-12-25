@@ -1,0 +1,16 @@
+@use "../utils/functions" as f;
+@use "../utils/mixins" as m;
+
+.page {
+    min-width: f.get-break-point("sm");
+
+    @include m.mq("xl") {
+        display: grid;
+        grid-template-columns: 248px 1fr;
+        grid-template-rows: 68px 1fr;
+
+        grid-template-areas: 
+            "sidebar header"
+            "sidebar main";
+    }
+}

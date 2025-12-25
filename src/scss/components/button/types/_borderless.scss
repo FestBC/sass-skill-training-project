@@ -1,0 +1,16 @@
+@if list.index($button-types, borderless) {
+    .button--borderless {
+        color: f.get-color("accent-primary");
+
+        &:hover,
+        &:focus {
+            color: f.get-color("accent-secondary");
+        }
+
+        &:active {
+            color: f.get-color("accent-tertiary");
+        }
+    }
+} @else {
+    @warn "Such a type doesn't exist. Add it to the list!"
+}

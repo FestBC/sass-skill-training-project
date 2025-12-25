@@ -1,0 +1,11 @@
+@use "../utils/variables" as v;
+
+@each $key, $value in v.$font-weights {
+    @font-face {
+        font-family: v.$main-font;
+        src: url("../../fonts/Montserrat-#{$key}.woff") format("woff"), url("../../fonts/Montserrat-#{$key}.woff2") format("woff2");
+        font-weight: $value;
+        font-style: normal;
+        font-display: swap;
+    }
+}

@@ -1,12 +1,15 @@
 {
-  "name": "starter-kit",
+  "name": "sass-skill-training-project",
+  "homepage": "https://festbc.github.io/sass-skill-training-project/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/starter-kit/",
+    "build": "vite build --base=/sass-skill-training-project/",
     "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "watch": "npx vite build --watch"
   },
   "browserslist": [
@@ -27,6 +30,7 @@
   },
   "dependencies": {
     "animejs": "^3.2.2",
-    "body-scroll-lock": "^4.0.0-beta.0"
+    "body-scroll-lock": "^4.0.0-beta.0",
+    "gh-pages": "^6.3.0"
   }
 }

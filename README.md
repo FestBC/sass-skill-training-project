@@ -1,4 +1,4 @@
-# 🧑‍💻 SASS skill training project
+# 🧑‍💻 Cat CRM
 
 ### [👉 Live demo 👈](https://festbc.github.io/sass-skill-training-project/)
 
